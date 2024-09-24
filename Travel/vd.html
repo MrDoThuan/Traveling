@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      display: flex;
+    }
+    .side-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 110px;
+      height: 100vh;
+      padding: 0 1.7rem;
+      color: black;
+      overflow: hidden;
+      transition: all 0.5s linear;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .side-bar:hover {
+      width: 320px;
+      transition: 0.5s;
+      background: #fff;
+    }
+    .side-bar .active {
+      background-color: #33CCFF;
+      color: #fff;
+    }
+    h3 {
+      white-space: nowrap;
+      transition: opacity 0.5s ease;
+      opacity: 0;
+    }
+    .side-bar:hover h3 {
+      opacity: 1;
+    }
+    .menu {
+      height: 88%;
+      position: relative;
+      list-style: none;
+      margin-top: 20px;
+      padding: 0;
+    }
+    .menu li {
+      padding: 1rem;
+      margin: 8px 0;
+      border-radius: 10px;
+      transition: all 0.5s ease-in-out;
+    }
+    .menu li:hover {
+      background: #DDDDDD;
+    }
+    .menu li:active {
+      background: #33CCFF;
+      color: #fff;
+    }
+    .menu a {
+      color: black;
+      font-size: 14px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .menu a span {
+      overflow: hidden;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.5 ease;
+    }
+    .side-bar:hover .menu a span {
+      opacity: 1;
+    }
+    .menu a i {
+      font-size: 1.2rem;
+    }
+    .logout {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    .main-clause {
+      position: relative;
+      background-color: #ebe9e9;
+      width: 100%;
+      padding: 1rem;
+    }
+    .header-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px 2rem;
+      margin-bottom: 1rem;
+    }
+    .header-wrapper img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .header-title {
+      color: rgba(35, 35, 243, 0.4);
+    }
+    .admin-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .search-box {
+      background-color: #DDDDDD;
+      border-radius: 15px;
+      color: rgba(35, 35, 243, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 12px;
+    }
+    .search-box input {
+      border: none;
+      background-color: transparent;
+      padding: 10px;
+    }
+    .search-box input:focus {
+      outline: none;
+      border: none;
+    }
+    .search-box i {
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .main-title {
+      color: rgba(35, 35, 243, 0.4);
+      margin-bottom: 10px;
+      font-size: 16px;
+      opacity: 1;
+    }
+    .info-table {
+      background-color: #fff;
+      margin-top: 1rem;
+      border-radius: 10px;
+      padding: 2rem;
+    }
+    .table-container {
+      width: 100%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    thead {
+      background-color: #33CCFF;
+      color: #fff;
+    }
+    th {
+      padding: 15px;
+      text-align: left;
+    }
+    tbody {
+      background-color: #fff;
+    }
+    td {
+      padding: 15px;
+      font-size: 14px;
+      color: #333;
+    }
+    tr:ntn-child(even) {
+      background-color: #fff;
+    }
+    tfoot {
+      background-color: #33CCFF;
+      font-weight: bold;
+      color: #fff;
+    }
+    .table-container button {
+      color: red;
+      background-color: none;
+      cursor: pointer;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: auto;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 25px;
+    }
+    .form-group label {
+      font-weight: bold;
+    }
+    .form-control {
+      border-radius: 20px;
+    }
+    table td img {
+      max-width: 200px; /* Đặt chiều rộng tối đa cho hình ảnh */
+      height: auto; /* Đảm bảo tỉ lệ khung hình của hình ảnh */
+    }
+    table td {
+      vertical-align: middle; /* Căn giữa nội dung theo chiều dọc */
+    }
+    table th, table td {
+      word-wrap: break-word; /* Đảm bảo rằng nội dung không tràn ra ngoài ô */
+    }
+    th, td{
+      width: 33,33%;
+      text-align: center;
+    }
+    .item-actions button {
+      padding: 5px 10px;
+      margin-right: 5px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .item-actions button.edit {
+      background-color: #17a2b8;
+      color: #fff;
+    }
+
+    .item-actions button.delete {
+      background-color: #dc3545;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="side-bar">
+    <h3 class="mb-2">DoThuan Travel</h3>
+    <ul class="menu">
+      <li>
+        <a href="#" onclick="activateMenuItem(event)">
+          <i class="fas fa-location"></i>
+          <span><b>Địa điểm Du lịch</b></span>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="activateMenuItem(event)">
+          <i class="fas fa-hotel"></i>
+          <span><b>Danh sách Khách sạn</b></span>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="activateMenuItem(event)">
+          <i class="fas fa-people-roof"></i>
+          <span><b>Danh sách Chỗ ở</b></span>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="activateMenuItem(event)">
+          <i class="fas fa-users"></i>
+          <span><b>Danh sách Đặt phòng</b></span>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="activateMenuItem(event)">
+          <i class="fas fa-address-card"></i>
+          <span><b>Thông tin Tài khoản</b></span>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="activateMenuItem(event)">
+          <i class="fas fa-list-alt"></i>
+          <span><b>Danh sách Sản phẩm</b></span>
+        </a>
+      </li>
+      <li class="logout">
+        <a href="#" onclick="activateMenuItem(event)">
+          <i class="fas fa-sign-out-alt"></i>
+          <span><b>Đăng Xuất</b></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="main-clause">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <span></span>
+        <h2>Xin chào, </h2>
+      </div>
+      <div class="admin-info">
+        <div class="search-box">
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="Nhập">
+        </div>
+        <img src="../Content/Images/Noio/DLCereja2.webp" alt="pic">
+      </div>
+    </div>
+    <div class="info-table">
+      <h3 class="main-title">
+        Tên danh sách
+      </h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th class="image-column">Hình Ảnh</th>
+              <th>Tên</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">123</td>
+              <td class="image-column"><img src="/Content/Images/NoiDuLich/DaNang.jpg"></td>
+              <td class="align-middle item-actions">
+                <button type="submit" class="edit">
+                <a href="" class="text-light"><span class="fa fa-edit"></span> Cập nhật</a>
+              </button>
+              <button type="submit" class="delete">
+                <a href="" class="text-light"><span class="fa fa-trash"></span> Xóa</a>
+              </button>
+    </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDzwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script>
+    function activateMenuItem(event) {
+      // Prevent the default anchor click behavior
+      event.preventDefault();
+
+      // Get all menu items
+      var menuItems = document.querySelectorAll('.menu li');
+
+      // Remove the 'active' class from all menu items
+      menuItems.forEach(function(item) {
+        item.classList.remove('active');
+      });
+
+      // Add the 'active' class to the clicked menu item
+      event.currentTarget.parentNode.classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Layout</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .main-image {
+            width: 700px;
+            height: 370px;
+        }
+        .side-images img {
+            width: 350px; /* Bằng một nửa của 700px */
+            height: 185px; /* Bằng một nửa của 370px */
+            margin-bottom: 20px; /* Khoảng cách giữa hai hình ảnh bên phải */
+        }
+        .side-images img:last-child {
+            margin-bottom: 0; /* Xóa khoảng cách dưới cùng của hình ảnh cuối cùng */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <img class="product-img main-image" src="../Content/Images/Noio/HNMina1.webp" alt="Main Image">
+            </div>
+            <div class="col-md-4">
+                <div class="side-images">
+                    <img class="product-image" src="../Content/Images/Noio/HNMina2.webp" alt="Side Image 1">
+                    <img class="product-image" src="../Content/Images/Noio/HNMina3.webp" alt="Side Image 2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
